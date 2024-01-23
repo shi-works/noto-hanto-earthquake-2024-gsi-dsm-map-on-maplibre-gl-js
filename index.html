@@ -1,0 +1,224 @@
+<html>
+
+<head>
+    <title>令和6年能登半島地震後 標高タイル（2mDSM）+空中写真</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/pmtiles@2.11.0/dist/index.js"></script>
+    <script type="module" src="maplibre-gl-gsi-terrain-fast-png.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .map-overlay {
+            font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: absolute;
+            width: 180px;
+            bottom: 20px;
+            left: 0;
+            padding: 10px;
+        }
+
+        .map-overlay .map-overlay-inner {
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .map-overlay label {
+            display: block;
+            margin: 0 0 0px;
+            font-size: 12px;
+            top: 100px;
+            left: 10px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .map-overlay input {
+            background-color: transparent;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            cursor: ew-resize;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div class="map-overlay top">
+        <div class="map-overlay-inner">
+            <label>空中写真 不透明度: <span id="photo-slider-opacity-value">100%</span></label>
+            <input id="photo-slider-opacity" type="range" min="0" max="100" step="1" value="100">
+        </div>
+    </div>
+    <script type="text/javascript">
+        // addProtocolの設定
+        let protocol = new pmtiles.Protocol();
+        maplibregl.addProtocol("pmtiles", protocol.tile);
+
+        // マップの初期化
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'std.json',
+            zoom: 15.41,
+            minZoom: 1,
+            maxZoom: 23,
+            pitch: 73,
+            bearing: 0,
+            maxPitch: 85,
+            center: [134.8305491, 35.299926],
+            hash: true,
+            attributionControl: false
+        });
+
+        // ズーム・回転
+        map.addControl(new maplibregl.NavigationControl());
+
+        // フルスクリーンモードのオンオフ
+        map.addControl(new maplibregl.FullscreenControl());
+
+        // 現在位置表示
+        map.addControl(new maplibregl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: false
+            },
+            fitBoundsOptions: { maxZoom: 18 },
+            trackUserLocation: true,
+            showUserLocation: true
+        }));
+
+        // スケール表示
+        map.addControl(new maplibregl.ScaleControl({
+            maxWidth: 200,
+            unit: 'metric'
+        }));
+
+        // Attributionを折りたたみ表示
+        map.addControl(new maplibregl.AttributionControl({
+            compact: true,
+            customAttribution: '（<a href="https://twitter.com/shi__works" target="_blank">Twitter</a> | <a href="" target="_blank">Github</a>） '
+        }));
+
+        // 3D地形コントロール
+        map.addControl(
+            new maplibregl.TerrainControl({
+                source: 'gsidem',
+                exaggeration: 1 // 標高を強調する倍率
+            })
+        );
+
+        // マップをロードしたら実行
+        map.on('load', () => {
+            // 地理院 標高タイルソース
+            map.addSource("gsidem", {
+                type: 'raster-dem',
+                tiles: [
+                    'gsidem://https://maps.gsi.go.jp/xyz/2mDSM/{z}/{x}/{y}.png',
+                ],
+                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html#dem" target="_blank">地理院タイル(標高タイル)</a>',
+                // tileSize: 256
+            });
+
+            // 地理院 標高タイルセット
+            map.setTerrain({ 'source': 'gsidem', 'exaggeration': 1 });
+
+            // 令和6年能登半島地震 輪島中地区　正射画像（2024年1月2日撮影）ソース
+            map.addSource("wazimanaka-0102", {
+                type: 'raster',
+                tiles: [
+                    'https://cyberjapandata.gsi.go.jp/xyz/20240102noto_wazimanaka_0102do/{z}/{x}/{y}.png',
+                ],
+                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
+            });
+
+            // 令和6年能登半島地震 輪島中地区　正射画像（2024年1月2日撮影）レイヤ
+            map.addLayer({
+                id: "wazimanaka-0102",
+                type: "raster",
+                source: "wazimanaka-0102",
+                paint: {
+                    "raster-opacity": 1
+                }
+            });
+
+            // 令和6年能登半島地震 珠洲地区　正射画像（2024年1月2日撮影）ソース
+            map.addSource("suzu-0102", {
+                type: 'raster',
+                tiles: [
+                    'https://cyberjapandata.gsi.go.jp/xyz/20240102noto_suzu_0102do/{z}/{x}/{y}.png',
+                ],
+                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
+            });
+
+            // 令和6年能登半島地震 珠洲地区　正射画像（2024年1月2日撮影）レイヤ
+            map.addLayer({
+                id: "suzu-0102",
+                type: "raster",
+                source: "suzu-0102",
+                paint: {
+                    "raster-opacity": 1
+                }
+            });
+
+            // 令和6年能登半島地震 輪島東地区　正射画像（2024年1月2日撮影）ソース
+            map.addSource("wazimahigashi-0102", {
+                type: 'raster',
+                tiles: [
+                    'https://cyberjapandata.gsi.go.jp/xyz/20240102noto_wazimahigashi_0102do/{z}/{x}/{y}.png',
+                ],
+                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
+            });
+
+            // 令和6年能登半島地震 輪島東地区　正射画像（2024年1月2日撮影）レイヤ
+            map.addLayer({
+                id: "wazimahigashi-0102",
+                type: "raster",
+                source: "wazimahigashi-0102",
+                paint: {
+                    "raster-opacity": 1
+                }
+            });
+
+            // スライダーで陰影起伏図の不透明度を制御
+            const photosliderOpactiy = document.getElementById('photo-slider-opacity');
+            const photosliderOpactiyValue = document.getElementById('photo-slider-opacity-value');
+
+            photosliderOpactiy.addEventListener('input', (e) => {
+                map.setPaintProperty(
+                    'wazimanaka-0102',
+                    'raster-opacity',
+                    parseInt(e.target.value, 10) / 100
+                );
+                map.setPaintProperty(
+                    'suzu-0102',
+                    'raster-opacity',
+                    parseInt(e.target.value, 10) / 100
+                );
+                map.setPaintProperty(
+                    'wazimahigashi-0102',
+                    'raster-opacity',
+                    parseInt(e.target.value, 10) / 100
+                );
+                photosliderOpactiyValue.textContent = e.target.value + '%';
+            });
+
+            map.showTileBoundaries = false;
+
+        })
+    </script>
+</body>
+
+</html>
