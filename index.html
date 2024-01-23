@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>令和6年能登半島地震後 標高タイル（2mDSM）+空中写真</title>
+    <title>令和6年能登半島地震後 標高タイル（2mDSM）+空中写真（1/2撮影）</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js'></script>
@@ -73,13 +73,13 @@
         const map = new maplibregl.Map({
             container: 'map',
             style: 'std.json',
-            zoom: 15.41,
+            zoom: 16.92,
             minZoom: 1,
             maxZoom: 23,
-            pitch: 73,
-            bearing: 0,
+            pitch: 68,
+            bearing: 152.4,
             maxPitch: 85,
-            center: [134.8305491, 35.299926],
+            center: [137.023295, 37.4324],
             hash: true,
             attributionControl: false
         });
@@ -141,7 +141,7 @@
                 tiles: [
                     'https://cyberjapandata.gsi.go.jp/xyz/20240102noto_wazimanaka_0102do/{z}/{x}/{y}.png',
                 ],
-                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
+                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル(正射画像)</a>'
             });
 
             // 令和6年能登半島地震 輪島中地区　正射画像（2024年1月2日撮影）レイヤ
@@ -160,7 +160,7 @@
                 tiles: [
                     'https://cyberjapandata.gsi.go.jp/xyz/20240102noto_suzu_0102do/{z}/{x}/{y}.png',
                 ],
-                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
+                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル(正射画像)</a>'
             });
 
             // 令和6年能登半島地震 珠洲地区　正射画像（2024年1月2日撮影）レイヤ
@@ -179,7 +179,7 @@
                 tiles: [
                     'https://cyberjapandata.gsi.go.jp/xyz/20240102noto_wazimahigashi_0102do/{z}/{x}/{y}.png',
                 ],
-                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
+                attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank"地理院タイル(正射画像)</a>'
             });
 
             // 令和6年能登半島地震 輪島東地区　正射画像（2024年1月2日撮影）レイヤ
