@@ -1,10 +1,11 @@
-# Public Website
+# 令和6年能登半島地震後 被災状況3Dマップ
+## Public Website
 https://shi-works.github.io/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-gl-js/
 
 https://github.com/shi-works/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-gl-js/assets/71203808/5cff179d-c286-4611-a88a-219af4d8105c
 
-# Data Source
-## 国土地理院
+## Data Source
+### 国土地理院
 - 被災後の数値表層モデル（DSM）：輪島中・輪島東・珠洲地区
     - 出典：[令和6年(2024年)能登半島地震 3Dモデル閲覧サイト](https://maps.gsi.go.jp/noto/#12/37.434795/137.176323/&base=std&ls=std%7CDEM2A_noto%7C20240102noto_suzu_0102do%7C20240102noto_wazimahigashi_0102do&blend=000&disp=1011&vs=c1g1j0h0k0l0u0t0z0r0s0m0f1&d=m)
     - 標高タイルURL：https://maps.gsi.go.jp/xyz/2mDSM/{z}/{x}/{y}.png
