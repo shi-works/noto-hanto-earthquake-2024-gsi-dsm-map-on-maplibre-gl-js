@@ -19,8 +19,14 @@ https://github.com/shi-works/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-
     - 留意事項：本サイトから得られる高さ情報は測量成果ではなく、精度検証は実施していません。
     - 免責事項：本サイトから得られる情報の利用により生じた一切の損害について、国土地理院はいかなる責任も負わないものとします。
 
-- 被災後の空中写真（正射画像）：輪島中・輪島東・珠洲地区、2024年01月02日撮影
-    - 出典：https://maps.gsi.go.jp/development/ichiran.html#t20240102noto_suzu_0102do
+- 被災後の空中写真（正射画像）
+    - 出典：https://www.gsi.go.jp/BOUSAI/20240101_noto_earthquake.html#3-1
+        - 珠洲地区：１月２日及び１月１４日撮影
+        - 輪島東地区：１月２日及び１月１４日撮影
+        - 輪島中地区：１月１１日撮影
+        - 輪島西地区：１月１１日及び１月１７日撮影
+        - 穴水地区：１月１７日撮影
+        - 七尾地区：１月５日及び１月１７日撮影
 
 - 斜面崩壊・堆積分布データ（2024年1月22日更新）
     - 出典：https://www.gsi.go.jp/BOUSAI/20240101_noto_earthquake.html#2
