@@ -6,10 +6,16 @@ https://github.com/shi-works/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-
 
 ## Data Source
 ### 国土地理院
-- 被災後の数値表層モデル（DSM）：輪島中・輪島東・珠洲地区
-    - 出典：[令和6年(2024年)能登半島地震 3Dモデル閲覧サイト](https://maps.gsi.go.jp/noto/#12/37.434795/137.176323/&base=std&ls=std%7CDEM2A_noto%7C20240102noto_suzu_0102do%7C20240102noto_wazimahigashi_0102do&blend=000&disp=1011&vs=c1g1j0h0k0l0u0t0z0r0s0m0f1&d=m)
-    - 標高タイルURL：https://maps.gsi.go.jp/xyz/2mDSM/{z}/{x}/{y}.png
-    - 概要：このサイトで得られる高さ情報は、国土地理院が1月2日に撮影した空中写真（輪島中・輪島東・珠洲地区）を使用し、SfM手法を用いて作成したDSMモデルです。
+- 被災後の数値表層モデル（DSM）
+    - 出典：[令和6年(2024年)能登半島地震 3Dモデル閲覧サイト](https://maps.gsi.go.jp/noto/#11/37.343686/137.009125/&base=std&ls=std%7C20240102noto_wazimanaka_0111do%7C20240102_noto_nanao_0105do%7C20240102noto_anamizu_0117do%7C20240102noto_wazimanishi_0111do%7C20240102noto_wazimahigashi_0102do%7C20240102noto_wazimahigashi_0114do%7C20240102noto_suzu_0102do%7C20240102noto_suzu_0114do&blend=00000000&disp=111111111&lcd=20240102noto_suzu_0114do&vs=c1g1j0h0k0l0u0t0z0r0s0m0f0)
+    - 標高タイルURL：https://maps.gsi.go.jp/xyz/20240102noto_1mDSM/{z}/{x}/{y}.png
+    - 概要：以下の撮影日に国土地理院が撮影した空中写真を使用し、SfM手法を用いて作成した数値表層モデル（DSM）です。
+        - 珠洲地区：１月２日及び１月１４日撮影
+        - 輪島東地区：１月２日及び１月１４日撮影
+        - 輪島中地区：１月１１日撮影
+        - 輪島西地区：１月１１日及び１月１７日撮影
+        - 穴水地区：１月１７日撮影
+        - 七尾地区：１月５日及び１月１７日撮影
     - 留意事項：本サイトから得られる高さ情報は測量成果ではなく、精度検証は実施していません。
     - 免責事項：本サイトから得られる情報の利用により生じた一切の損害について、国土地理院はいかなる責任も負わないものとします。
 
