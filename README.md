@@ -64,3 +64,11 @@ https://github.com/shi-works/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-
     - 概要：http://disaster.ajg.or.jp/files/202401_Noto008.pdf
 
 - 上記の公開データのライセンス：令和6年能登半島地震変動地形調査グループ（日本地理学会）、[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)
+
+### 背景地図及び地形データ
+- 国土地理院 最適化ベクトルタイル
+    - 出典：https://github.com/gsi-cyberjapan/optimal_bvmap
+    - ライセンス：[国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html)に従い、出典明示により、転載も含め使用可
+- 国土地理院 地理院タイル（陰影起伏図）
+    - 出典：https://maps.gsi.go.jp/development/ichiran.html#hillshademap
+    - ライセンス：[国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html)に従い、出典明示により、転載も含め使用可
