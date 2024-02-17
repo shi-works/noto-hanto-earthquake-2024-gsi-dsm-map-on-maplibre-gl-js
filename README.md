@@ -2,7 +2,7 @@
 ## Public Website
 https://shi-works.github.io/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-gl-js/
 
-https://github.com/shi-works/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-gl-js/assets/71203808/b6594694-aa15-496a-8593-fc0e52c1eeef
+https://github.com/shi-works/noto-hanto-earthquake-2024-gsi-dsm-map-on-maplibre-gl-js/assets/71203808/7491b0a3-e7f6-4cc7-932b-589415df5f37
 
 ## Data Source
 ### 国土地理院
