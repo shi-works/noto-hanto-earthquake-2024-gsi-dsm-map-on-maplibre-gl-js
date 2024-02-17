@@ -957,10 +957,10 @@
             document.getElementById('cracks').addEventListener('change', function (e) {
                 if (e.target.checked) {
                     // チェックボックスがON - レイヤーを表示
-                    afterMap.setLayoutProperty('cracks-lines', 'visibility', 'visible');
+                    map.setLayoutProperty('cracks-lines', 'visibility', 'visible');
                 } else {
                     // チェックボックスがOFF - レイヤーを非表示
-                    afterMap.setLayoutProperty('cracks-lines', 'visibility', 'none');
+                    map.setLayoutProperty('cracks-lines', 'visibility', 'none');
                 }
             });
         </script>
